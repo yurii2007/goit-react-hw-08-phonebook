@@ -6,7 +6,7 @@ import { selectContacts, selectIsLoading } from 'redux/selectors';
 import { Loader } from './Loader/Loader';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts)
   const isLoading = useSelector(selectIsLoading);
 
   return (
