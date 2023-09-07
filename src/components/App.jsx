@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,6 +37,7 @@ export const App = () => {
           <PrivateRoute redirectTo='/login' component={<ContactsPage />} />
         } />
       </Route>
+      <Route path="*" element={<Navigate to='/' />} />
     </Routes>
   );
 };

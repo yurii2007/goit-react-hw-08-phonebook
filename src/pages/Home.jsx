@@ -2,7 +2,7 @@ import prykol from '../images/prykol.png';
 
 const Home = () => {
     return (
-        <main>
+        <>
           <img style={{
             position: 'absolute',
             top: '50%',
@@ -11,7 +11,7 @@ const Home = () => {
             width: 300,
             height: 300,
           }} src={prykol} alt='nema prykola' />
-        </main>
+        </>
       )
 }
 
