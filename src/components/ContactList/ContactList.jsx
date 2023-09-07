@@ -1,6 +1,7 @@
+import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, fetchContacts } from 'redux/operations';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import { selectFilteredContacts } from 'redux/selectors';
 
 export const ContactList = () => {
@@ -15,7 +16,11 @@ export const ContactList = () => {
     dispatch(deleteContact(contactId));
   };
 
+  if(contacts.length < 1) return <p>You don't have any contacts yet</p>
+
   return (
+    <>
+    <Filter />
     <ul>
       {contacts.map(({ id, name, number }) => {
         return (
@@ -28,5 +33,6 @@ export const ContactList = () => {
         );
       })}
     </ul>
+    </>
   );
 };

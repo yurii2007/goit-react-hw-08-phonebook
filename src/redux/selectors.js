@@ -10,5 +10,10 @@ export const selectError = state => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectFilter],
-  (contacts, filter) => contacts.filter(contact => contact.name.toLowerCase().includes(filter))
-);
+  (contacts, filter) => contacts.filter(contact => contact.name.toLowerCase().includes(filter)));
+
+export const selectIsLoggedIn = state => state.auth.isLoggedIn;
+
+export const selectUser = state => state.auth.user;
+
+export const selectIsRefreshing = state => state.auth.isRefreshing;

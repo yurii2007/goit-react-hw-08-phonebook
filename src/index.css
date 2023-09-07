@@ -19,44 +19,9 @@ code {
   color: #111;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 1px solid black;
-  width: 30vw;
-  padding: 10px;
+a {
+  text-decoration: none;
 }
-label {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  font-size: 2rem;
-  gap: 5px;
-}
-input {
-  padding: 5px;
-}
-
-form > button {
-  width: 30%;
-}
-
-button {
-  padding: 10px;
-  text-align: center;
-  border: none;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  background-color: teal;
-  color: aliceblue;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-li > button {
-  margin-left: 4px;
+main {
+  padding-block: 40px;
 }

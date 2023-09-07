@@ -1,28 +1,42 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import { useSelector } from 'react-redux';
-import { selectContacts, selectIsLoading } from 'redux/selectors';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefreshing } from 'redux/selectors';
+import { refreshUser } from 'redux/auth/operations';
 import { Loader } from './Loader/Loader';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
+
+const HomePage = lazy(()=> import('pages/Home'));
+const LoginPage = lazy(()=> import('pages/Login'));
+const RegisterPage = lazy(()=> import('pages/Register'));
+const ContactsPage = lazy(()=> import('pages/Contacts'));
 
 export const App = () => {
-  const contacts = useSelector(selectContacts)
-  const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  if(isRefreshing) return <Loader />
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      {isLoading && <Loader />}
-      <h2>Contacts</h2>
-      {contacts?.length === 0 ? (
-        <p>You didn't have any contacts yet</p>
-      ) : (
-        <>
-          <Filter />
-          <ContactList />
-        </>
-      )}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path='/login' element={
+          <RestrictedRoute redirectTo='/contacts' component={<LoginPage />} />
+        } />
+        <Route path='/register' element={
+          <RestrictedRoute redirectTo='/contacts' component={<RegisterPage />} />
+        } />
+        <Route path='/contacts' element={
+          <PrivateRoute redirectTo='/login' component={<ContactsPage />} />
+        } />
+      </Route>
+    </Routes>
   );
 };
