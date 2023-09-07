@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #7852A9;
 }
 
 code {
@@ -15,13 +16,12 @@ code {
 }
 
 #root {
-  padding-left: 20px;
-  color: #111;
+  color: #28231d;
 }
 
 a {
   text-decoration: none;
 }
 main {
-  padding-block: 40px;
+  padding: 40px;
 }

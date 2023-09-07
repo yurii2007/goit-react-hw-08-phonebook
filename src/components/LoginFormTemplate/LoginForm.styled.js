@@ -6,9 +6,9 @@ export const LogFormElem = styled.form`
   margin: 0 auto;
   background: #f4f6fb;
   border: 1px solid white;
-  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
-  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
-  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+  box-shadow: 10px 10px 64px 0px rgba(105, 105, 105, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(105, 105, 105, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(105, 105, 105, 0.75);
 
   .card_header {
     display: flex;

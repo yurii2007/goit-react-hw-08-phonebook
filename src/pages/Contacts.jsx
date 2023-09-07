@@ -1,5 +1,5 @@
-const { ContactForm } = require("components/ContactForm/ContactForm")
-const { ContactList } = require("components/ContactList/ContactList")
+import { ContactForm } from "components/ContactForm/ContactForm"
+import { ContactList } from "components/ContactList/ContactList"
 
 const ContactsPage = () => {
     return (

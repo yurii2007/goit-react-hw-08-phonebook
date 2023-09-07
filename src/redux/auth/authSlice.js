@@ -17,11 +17,17 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
-      })
+      }).addCase(register.rejected,(state) => {
+        state.isLoggedIn = false;
+        return alert('Oops, somethins went wrong, please reload page')
+      }) 
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+      }).addCase(logIn.rejected,(state) => {
+        state.isLoggedIn = false;
+        return alert('Oops, somethins went wrong, please reload page')
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };

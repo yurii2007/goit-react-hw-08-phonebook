@@ -1,5 +1,12 @@
 import { styled } from "styled-components";
 
+export const UserMenuWrapper = styled.div`
+align-items: center;
+  p {
+    margin: 0;
+  }
+`
+
 export const BtnLogout = styled.button`
     display: flex;
     align-items: center;
@@ -13,7 +20,7 @@ export const BtnLogout = styled.button`
     overflow: hidden;
     transition-duration: .3s;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-    background-color: rgb(255, 65, 65);
+    background-color: rgb(195, 176, 145);
   
   /* plus sign */
   .sign {
@@ -44,7 +51,7 @@ export const BtnLogout = styled.button`
   }
 
   &:hover {
-    width: 125px;
+    width: 115px;
     border-radius: 40px;
     transition-duration: .3s;
   }
@@ -56,7 +63,7 @@ export const BtnLogout = styled.button`
 
   &:hover .text {
     opacity: 1;
-    width: 70%;
+    width: 60%;
     transition-duration: .3s;;
   }
   /* button click effect*/
