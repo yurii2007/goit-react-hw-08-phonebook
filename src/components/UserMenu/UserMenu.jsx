@@ -4,7 +4,7 @@ import { selectUser } from 'redux/selectors';
 import { BtnLogout, UserMenuWrapper } from './UserMenu.styled';
 
 export const UserMenu = () => {
-  const { name } = useSelector(selectUser);
+  const { email } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -13,7 +13,7 @@ export const UserMenu = () => {
 
   return (
     <UserMenuWrapper>
-      <p>Welcome, {name}</p>
+      <p>{email}</p>
       <BtnLogout onClick={handleLogout} type='button'>
         <div className="sign">
           <svg viewBox="0 0 512 512">
